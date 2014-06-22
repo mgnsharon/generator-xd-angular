@@ -1,0 +1,20 @@
+{
+  "name": "generator-xd-angular",
+  "version": "0.0.1",
+  "description": "AngularJS generator",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:csharon/generator-xd-angular.git"
+  },
+  "keywords": [
+    "Yeoman",
+    "Generator",
+    "Angular"
+  ],
+  "author": "Chris Sharon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/csharon/generator-xd-angular/issues"
+  },
+  "homepage": "https://github.com/csharon/generator-xd-angular"
+}
