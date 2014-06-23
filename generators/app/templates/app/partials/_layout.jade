@@ -1,0 +1,10 @@
+doctype html
+html(lang="en", ng-app="<%= _.camelize(projectName) %>")
+  head
+    title <%= _.camelize(projectName) %>
+    link(href="/favicon.ico", rel="shortcut icon", type="image/x-icon")
+    link(rel="stylesheet", href="/vendor/toastr/toastr.css")
+    link(rel="stylesheet", href="/app.css")
+  body(ng-controller="<%= _.camelize(projectName) %>Ctrl", ng-cloak)
+    block main-content
+    include scripts
