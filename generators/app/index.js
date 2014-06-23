@@ -37,6 +37,11 @@ var XdCodeGenerator = yeoman.generators.Base.extend({
         name: 'vendorPrefix',
         message: 'What vendor prefix would you like to use for your directives?',
         default: ''
+      },
+      {
+        name: 'repoUrl',
+        message: 'What is your repository url?',
+        default: ''
       }
     ];
 

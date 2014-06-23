@@ -1,4 +1,4 @@
-<%= _.slugify(projectName) %>
+<%= _.camelize(projectName) %>
 =============================
 
 ####Requirements
@@ -13,11 +13,11 @@ bower install
 
 ####Gulp Tasks
 ```bash
-gulp dev  // Development - builds application, runs development server, watches for changes, runs tdd server
+gulp dev  #Development - builds application, runs development server, watches for changes, runs tdd server
 
-gulp tdd  // TDD - Test Driven Development, automatically runs mocha units tests as you edit files.
+gulp tdd  #TDD - Test Driven Development, automatically runs mocha units tests as you edit files.
 
-gulp test  // Test - Run mocha unit tests using PhantomJS and exits
+gulp test #Test - Run mocha unit tests using PhantomJS and exits
 
 ```
 #### Technologies Used
