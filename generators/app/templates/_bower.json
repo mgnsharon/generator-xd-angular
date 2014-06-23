@@ -1,6 +1,12 @@
 {
   "name": "<%= _.slugify(projectName) %>",
   "version": "0.0.0",
+  <% if (repoUrl !== '') { %>
+  "repository": {
+    "type": "git",
+    "url": "<%= repoUrl %>"
+  },
+  <% } %>
   "ignore": [
     "**/.*",
     "node_modules",
