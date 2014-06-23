@@ -52,7 +52,6 @@ var XdCodeGenerator = yeoman.generators.Base.extend({
     this.copy('editorconfig', '.editorconfig');
     this.copy('jshintrc', '.jshintrc');
     this.copy('gitignore', '.gitignore');
-    this.copy('gulpfile.js', 'gulpfile.js');
     this.copy('karma.conf.js', 'karma.conf.js');
     this.copy('karma-common-conf.js', 'karma-common-conf.js');
   },
@@ -74,6 +73,20 @@ var XdCodeGenerator = yeoman.generators.Base.extend({
     this.template('_bower.json', 'bower.json');
     this.template('_package.json', 'package.json');
     this.template('_README.md', 'README.md');
+    this.template('_gulpfile.js', 'gulpfile.js');
+    this.template('app/_app.js', 'app/app.js');
+    this.template('app/_app.sass', 'app/app.sass');
+    this.template('app/partials/_layout.jade', 'app/partials/layout.jade');
+    this.template('app/partials/_scripts.jade', 'app/partials/scripts.jade');
+    this.template('app/_index.jade', 'app/index.jade');
+    this.template('app/views/test1/_test1.js', 'app/views/test1/test1.js');
+    this.template('app/views/test1/_test1.jade', 'app/views/test1/test1.jade');
+    this.template('app/views/test2/_test2.js', 'app/views/test2/test2.js');
+    this.template('app/views/test2/_test2.jade', 'app/views/test2/test2.jade');
+    this.template('srv/_server.js', 'srv/server.js');
+    this.template('srv/lib/config/_express.js', 'srv/lib/config/express.js');
+    this.template('srv/lib/config/_routes.js', 'srv/lib/config/routes.js');
+    this.template('srv/lib/config/_config.js', 'srv/lib/config/config.js');
   }
 
 });

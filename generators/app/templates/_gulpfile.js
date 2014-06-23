@@ -88,7 +88,7 @@ gulp.task('sass', function () {
 gulp.task('templateCache', function () {
   gulp.src(filesets.templateCache)
     .pipe(jade({pretty: true}))
-    .pipe(ngtemplates('marvel.tpls.js', {module: 'mc.tmpls', root: '/', standalone: true}))
+    .pipe(ngtemplates('<%= _.slugify(projectName) %>.tpls.js', {module: '<%= vendorPrefix %>.tmpls', root: '/', standalone: true}))
     .pipe(gulp.dest(paths.dev));
 });
 
@@ -128,7 +128,7 @@ gulp.task('serve:dev', function () {
 gulp.task('createtesttmpls', function () {
   gulp.src(filesets.templateCache)
     .pipe(jade({pretty: true}))
-    .pipe(ngtemplates('marvel.tpls.js', {module: 'mc.tmpls', root: '/', standalone: true}))
+    .pipe(ngtemplates('<%= _.slugify(projectName) %>.tpls.js', {module: '<%= vendorPrefix %>.tmpls', root: '/', standalone: true}))
     .pipe(gulp.dest('test/spec'));
 });
 

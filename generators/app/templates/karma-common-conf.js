@@ -17,15 +17,14 @@ module.exports = {
     'bower_components/angular-ui-router/release/angular-ui-router.js',
     'bower_components/toastr/toastr.js',
     'bower_components/moment/moment.js',
-    'test/spec/marvel.tpls.js',
+    'test/spec/<%= _.slugify(projectName) %>.tpls.js',
     'app/**/*.js'
   ],
 
 
   // list of files to exclude
   exclude: [
-    'app/app.js',
-    'app/app-controller.js'
+    'app/app.js'
   ],
 
   // test results reporter to use
