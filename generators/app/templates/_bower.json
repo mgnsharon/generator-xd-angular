@@ -1,0 +1,44 @@
+{
+  "name": "<%= _.slugify(projectName) %>",
+  "version": "0.0.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "toastr": "~2.0.3",
+    "angular": "~1.2.18",
+    "angular-ui-router": "~0.2.10",
+    "restangular": "~1.4.0",
+    "font-awesome": "~4.1.0",
+    "sass-bootstrap": "~3.0.2",
+    "angular-ui-bootstrap": "~0.11.0",
+    "lodash": "~2.4.1",
+    "angular-moment": "~0.7.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.18"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": "./fonts/*"
+    },
+    "sass-bootstrap": {
+      "main": {
+        "development": "./dist/js/bootstrap.js",
+        "production": "./dist/js/bootstrap.min.js"
+      }
+    },
+    "angular-ui-bootstrap": {
+      "main": [
+        "./src/transition/transition.js",
+        "./src/modal/modal.js",
+        "./template/modal/*"
+      ]
+    }
+  }
+}
