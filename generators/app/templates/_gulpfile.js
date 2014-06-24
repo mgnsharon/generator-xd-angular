@@ -35,9 +35,9 @@ var paths = {
 };
 
 var filesets = {
-  templateCache: ['app/**/*.jade', '!app/index.jade', '!app/partials'],
+  templateCache: ['app/**/*.jade', '!app/index.jade', '!app/partials/**'],
   templates: ['app/index.jade', 'app/partials/*.jade'],
-  js: ['app/**/*.js', '!app/**/*.spec.js'],
+  js: ['app/**/*.js', '!app/**/*-spec.js'],
   sass: ['app/**/*.sass'],
   dev: 'dev/**'
 };
