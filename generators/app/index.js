@@ -46,7 +46,7 @@ var XdCodeGenerator = yeoman.generators.Base.extend({
     ];
 
     this.prompt(prompts, function (props) {
-      _.extend(this, props);
+      _.assign(this, props);
       this.config.set(props);
 
       done();
