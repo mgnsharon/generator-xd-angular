@@ -1,6 +1,6 @@
 {
   "name": "generator-xd-angular",
-  "version": "0.0.1",
+  "version": "0.1.2",
   "description": "AngularJS generator",
   "main": "app/index.js",
   "repository": {
