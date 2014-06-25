@@ -1,7 +1,7 @@
 {
   "name": "generator-xd-angular",
-  "version": "0.1.2",
-  "description": "AngularJS generator",
+  "version": "0.1.3",
+  "description": "AngularJS generator using Angular-ui-router, sass-bootstrap, compass, mocha, gulp, font-awesome",
   "main": "app/index.js",
   "repository": {
     "type": "git",
