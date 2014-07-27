@@ -22,7 +22,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
     this.template('_controller.js', this.viewPath + this.ctrlFilename);
     this.template('_controller-spec.js', this.viewPath + this.ctrlSpecFilename);
     this.template('_view.jade', this.viewPath + this.viewFilename + '.jade');
-    this.template('_view.sass', this.viewPath + this.viewFilename + '.sass');
+    this.template('_view.scss', this.viewPath + this.viewFilename + '.scss');
   }
 });
 

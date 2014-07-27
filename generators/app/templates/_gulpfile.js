@@ -5,15 +5,16 @@ var gulp = require('gulp'),
   ngmin = require('gulp-ngmin'),
   jshint = require('gulp-jshint'),
   stylish = require('jshint-stylish'),
-  clean = require('gulp-clean'),
-  nodemon = require('gulp-nodemon'),
+  del = require('del'),
+  <% if (webserver === 'express') { %>nodemon = require('gulp-nodemon'),<% } %>
+  <% if (webserver === 'gulp-webserver') { %>webserver = require('gulp-webserver'),<% } %>
   jade = require('gulp-jade'),
   ngtemplates = require('gulp-angular-templatecache'),
   compass = require('gulp-compass'),
-  bowerFiles = require('gulp-bower-files'),
+  bowerFiles = require('main-bower-files'),
   karmaCommonConf = require('./karma-common-conf.js'),
   karma = require('karma').server,
-  open = require("gulp-open"),
+  open = require('gulp-open'),
   _ = require('lodash');
 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -21,7 +22,7 @@ var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 /**
  *  Main Tasks
  */
-gulp.task('dev', ['dev:build', 'serve:dev', 'watch', 'tdd', 'open:dev']);
+gulp.task('dev', ['open:dev', 'watch']);
 gulp.task('test', ['createtesttmpls', 'test:ci']);
 gulp.task('tdd', ['createtesttmpls', 'autotest', 'watch:testtemplates']);
 
@@ -38,7 +39,7 @@ var filesets = {
   templateCache: ['app/**/*.jade', '!app/index.jade', '!app/partials/**'],
   templates: ['app/index.jade', 'app/partials/*.jade'],
   js: ['app/**/*.js', '!app/**/*-spec.js'],
-  sass: ['app/**/*.sass'],
+  sass: ['app/**/*.scss'],
   dev: 'dev/**'
 };
 
@@ -53,31 +54,30 @@ gulp.task('watch', function () {
   gulp.watch(filesets.templateCache, ['templateCache']);
 });
 
-gulp.task('dev:build', ['copy:js', 'templateCache', 'jade:index', 'sass', 'copy:vendor']);
+gulp.task('dev:build', ['clean:dev', 'copy:js', 'templateCache', 'jade:index', 'sass', 'copy:vendor']);
 
 gulp.task('clean:dev', function () {
-  return gulp.src(filesets.dev, {read: false})
-    .pipe(clean({force: true}));
+  del.sync([filesets.dev]);
 });
 
 gulp.task('copy:vendor', function () {
-  bowerFiles()
-    .pipe(gulp.dest(paths.vendor_dev));
+  return gulp.src(bowerFiles(), {base: 'bower_components'})
+    .pipe(gulp.dest(paths.vendor_dev))
 });
 
 gulp.task('copy:js', function () {
-  gulp.src(filesets.js)
+  return gulp.src(filesets.js)
     .pipe(gulp.dest(paths.dev));
 });
 
 gulp.task('jade:index', function () {
-  gulp.src('app/index.jade')
+  return gulp.src('app/index.jade')
     .pipe(jade({pretty: true}))
     .pipe(gulp.dest('dev'));
 });
 
 gulp.task('sass', function () {
-  gulp.src('app/app.sass')
+  return gulp.src('app/app.scss')
     .pipe(compass({
       project: __dirname,
       css: 'dev',
@@ -86,19 +86,19 @@ gulp.task('sass', function () {
 });
 
 gulp.task('templateCache', function () {
-  gulp.src(filesets.templateCache)
+  return gulp.src(filesets.templateCache)
     .pipe(jade({pretty: true}))
     .pipe(ngtemplates('<%= _.slugify(projectName) %>.tpls.js', {module: '<%= vendorPrefix %>.tmpls', root: '/', standalone: true}))
     .pipe(gulp.dest(paths.dev));
 });
 
-gulp.task('open:dev', function () {
-  gulp.src('dev/index.html')
+gulp.task('open:dev', ['serve:dev'], function () {
+  return gulp.src('dev/index.html')
     .pipe(open("", {url: 'http://localhost:3000'}))
-})
+});
 
-gulp.task('serve:dev', function () {
-  nodemon({
+gulp.task('serve:dev', ['dev:build'], function () {
+  <% if (webserver === 'express') { %>nodemon({
     script: 'srv/server.js',
     ext: 'js',
     ignore: [
@@ -111,8 +111,14 @@ gulp.task('serve:dev', function () {
     ]})
     .on('restart', function () {
       console.log('restarted dog!');
-    });
-
+    });<% } %>
+  <% if (webserver === 'gulp-webserver') { %>return gulp.src('dev')
+    .pipe(webserver({
+      livereload: true,
+      host: '0.0.0.0',
+      port: 3000,
+      fallback: 'index.html'
+    }));<% } %>
 });
 
 /**
