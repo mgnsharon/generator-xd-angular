@@ -42,6 +42,12 @@ var XdCodeGenerator = yeoman.generators.Base.extend({
         name: 'repoUrl',
         message: 'What is your repository url?',
         default: ''
+      },
+      {
+        name: 'webserver',
+        type: 'list',
+        message: 'Which dev server would you like?',
+        choices: ['gulp-webserver', 'express']
       }
     ];
 
@@ -63,15 +69,17 @@ var XdCodeGenerator = yeoman.generators.Base.extend({
 
   createDirectoryStructure: function () {
     this.mkdir('app');
-    this.mkdir('srv');
+    if (this.webserver === 'express') {
+      this.mkdir('srv');
+      this.mkdir('srv/lib');
+      this.mkdir('srv/lib/config');
+    }
     this.mkdir('test');
     this.mkdir('app/components');
     this.mkdir('app/filters');
     this.mkdir('app/partials');
     this.mkdir('app/services');
     this.mkdir('app/views');
-    this.mkdir('srv/lib');
-    this.mkdir('srv/lib/config');
   },
 
   executeTemplates: function () {
@@ -80,7 +88,7 @@ var XdCodeGenerator = yeoman.generators.Base.extend({
     this.template('_README.md', 'README.md');
     this.template('_gulpfile.js', 'gulpfile.js');
     this.template('app/_app.js', 'app/app.js');
-    this.template('app/_app.sass', 'app/app.sass');
+    this.template('app/_app.scss', 'app/app.scss');
     this.template('app/partials/_layout.jade', 'app/partials/layout.jade');
     this.template('app/partials/_scripts.jade', 'app/partials/scripts.jade');
     this.template('app/_index.jade', 'app/index.jade');
@@ -88,10 +96,13 @@ var XdCodeGenerator = yeoman.generators.Base.extend({
     this.template('app/views/test1/_test1.jade', 'app/views/test1/test1.jade');
     this.template('app/views/test2/_test2.js', 'app/views/test2/test2.js');
     this.template('app/views/test2/_test2.jade', 'app/views/test2/test2.jade');
-    this.template('srv/_server.js', 'srv/server.js');
-    this.template('srv/lib/config/_express.js', 'srv/lib/config/express.js');
-    this.template('srv/lib/config/_routes.js', 'srv/lib/config/routes.js');
-    this.template('srv/lib/config/_config.js', 'srv/lib/config/config.js');
+
+    if (this.webserver === 'express') {
+      this.template('srv/_server.js', 'srv/server.js');
+      this.template('srv/lib/config/_express.js', 'srv/lib/config/express.js');
+      this.template('srv/lib/config/_routes.js', 'srv/lib/config/routes.js');
+      this.template('srv/lib/config/_config.js', 'srv/lib/config/config.js');
+    }
   }
 
 });

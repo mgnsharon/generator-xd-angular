@@ -21,7 +21,7 @@
     "angular-ui-router": "~0.2.10",
     "restangular": "~1.4.0",
     "font-awesome": "~4.1.0",
-    "sass-bootstrap": "~3.0.2",
+    "bootstrap-sass-official": "~3.2.0",
     "angular-ui-bootstrap": "~0.11.0",
     "lodash": "~2.4.1",
     "angular-moment": "~0.7.1"
@@ -33,11 +33,8 @@
     "font-awesome": {
       "main": "./fonts/*"
     },
-    "sass-bootstrap": {
-      "main": {
-        "development": "./dist/js/bootstrap.js",
-        "production": "./dist/js/bootstrap.min.js"
-      }
+    "bootstrap-sass-official": {
+      "main": "./assets/javascripts/bootstrap.js"
     },
     "angular-ui-bootstrap": {
       "main": [

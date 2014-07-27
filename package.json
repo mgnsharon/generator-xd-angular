@@ -1,8 +1,8 @@
 {
   "name": "generator-xd-angular",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "AngularJS generator using Angular-ui-router, sass-bootstrap, compass, mocha, gulp, font-awesome",
-  "main": "app/index.js",
+  "main": "generators/app/index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:csharon/generator-xd-angular.git"
@@ -24,7 +24,7 @@
     "test": "mocha"
   },
   "files": [
-    "app"
+    "generators"
   ],
   "dependencies": {
     "yeoman-generator": "^0.17.0",

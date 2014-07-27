@@ -27,7 +27,7 @@ var DirectiveGenerator = yeoman.generators.NamedBase.extend({
     this.template('_directive.js', this.viewPath + this.directiveFilename);
     this.template('_directive-spec.js', this.viewPath + this.directiveSpecFilename);
     this.template('_view.jade', this.viewPath + this.viewFilename + '.jade');
-    this.template('_view.sass', this.viewPath + this.viewFilename + '.sass');
+    this.template('_view.scss', this.viewPath + this.viewFilename + '.scss');
   }
 });
 
