@@ -1,6 +1,7 @@
-angular.module('<%= moduleName %>', [])
-  .factory('<%= factoryName %>', function () {
+(function () {
 
+  /* @ngInject */
+  function <%= factoryName %>() {
     var _data = [];
 
     //Public API
@@ -9,5 +10,9 @@ angular.module('<%= moduleName %>', [])
         return _data;
       }
     };
+  }
 
-  });
+  angular.module('<%= moduleName %>', [])
+    .factory('<%= factoryName %>', <%= factoryName %>);
+
+})();

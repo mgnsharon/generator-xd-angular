@@ -2,7 +2,7 @@
 var gulp = require('gulp'),
   concat = require('gulp-concat'),
   uglify = require('gulp-uglify'),
-  ngmin = require('gulp-ngmin'),
+  ngAnnotate = require('gulp-ng-annotate'),
   jshint = require('gulp-jshint'),
   stylish = require('jshint-stylish'),
   del = require('del'),
@@ -88,7 +88,7 @@ gulp.task('sass', function () {
 gulp.task('templateCache', function () {
   return gulp.src(filesets.templateCache)
     .pipe(jade({pretty: true}))
-    .pipe(ngtemplates('<%= _.slugify(projectName) %>.tpls.js', {module: '<%= vendorPrefix %>.tmpls', root: '/', standalone: true}))
+    .pipe(ngtemplates('<%= projectSlug %>.tpls.js', {module: '<%= vendorPrefix %>.tmpls', root: '/', standalone: true}))
     .pipe(gulp.dest(paths.dev));
 });
 
@@ -134,7 +134,7 @@ gulp.task('serve:dev', ['dev:build'], function () {
 gulp.task('createtesttmpls', function () {
   gulp.src(filesets.templateCache)
     .pipe(jade({pretty: true}))
-    .pipe(ngtemplates('<%= _.slugify(projectName) %>.tpls.js', {module: '<%= vendorPrefix %>.tmpls', root: '/', standalone: true}))
+    .pipe(ngtemplates('<%= projectSlug %>.tpls.js', {module: '<%= vendorPrefix %>.tmpls', root: '/', standalone: true}))
     .pipe(gulp.dest('test/spec'));
 });
 

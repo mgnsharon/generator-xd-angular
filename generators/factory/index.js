@@ -10,8 +10,8 @@ var FactoryGenerator = yeoman.generators.NamedBase.extend({
   init: function () {
     _.assign(this, this.config.getAll());
     this.servicePath = 'app/services/' + _s.dasherize(this.name) + '/';
-    this.moduleName = this.vendorPrefix + '.services.' + _s.camelize(this.name);
-    this.factoryName = _s.camelize(this.name);
+    this.moduleName = this.vendorPrefix + '.services.' + _s.classify(this.name);
+    this.factoryName = _s.classify(this.name);
     this.factoryFilename = _s.dasherize(this.name) + '.js';
     this.factorySpecFilename = _s.dasherize(this.name) + '-spec.js';
   },
