@@ -5,12 +5,12 @@ describe('<%= moduleName %>', function () {
   var scope, ctrl;
   beforeEach( inject( function ($rootScope, $controller){
     scope = $rootScope.$new();
-    ctrl = $controller('<%= ctrlName %>', { $scope: scope });
+    ctrl = $controller('<%= ctrlName %> as vm', { $scope: scope });
   }));
 
 
   it('should have scope', function () {
-    expect(scope.name).to.equal('<%= ctrlName %>');
+    expect(scope.vm.name).to.equal('<%= ctrlName %>');
   });
 
 });
