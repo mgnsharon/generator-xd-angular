@@ -1,17 +1,33 @@
 {
   "name": "generator-xd-angular",
-  "version": "0.2.0",
-  "description": "AngularJS generator using Angular-ui-router, sass-bootstrap, compass, mocha, gulp, font-awesome",
+  "version": "0.3.0",
+  "description": "AngularJS yeoman-generator using Angular-ui-router, sass-bootstrap, compass, mocha, gulp, font-awesome",
+  "keywords": [
+    "yeoman-generator",
+    "angular",
+    "best",
+    "practices",
+    "express",
+    "fullstack",
+    "gulp",
+    "mocha-chai",
+    "sass",
+    "bootstrap",
+    "feature-based",
+    "live-reload",
+    "jade",
+    "font-awesome",
+    "bower"
+  ],
   "main": "generators/app/index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:csharon/generator-xd-angular.git"
   },
-  "keywords": [
-    "yeoman-generator",
-    "Angular"
+  "contributors": [
+    "Chris Sharon <chris@xdoji.com> (https://github.com/csharon)",
+    "Aaron Olson <aaron.chandler.olson@gmail.com>"
   ],
-  "author": "Chris Sharon",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/csharon/generator-xd-angular/issues"

@@ -9,13 +9,14 @@ var util = require('util'),
 var ViewGenerator = yeoman.generators.NamedBase.extend({
   init: function () {
     _.assign(this, this.config.getAll());
-    this.viewPath = 'app/views/' + _s.dasherize(this.name) + '/';
-    this.moduleName = this.vendorPrefix + '.views.' + _s.camelize(this.name);
-    this.styleName = _s.camelize(this.name);
     this.viewFilename = _s.dasherize(this.name);
-    this.ctrlName = _s.camelize(this.name) + 'Ctrl';
-    this.ctrlFilename = _s.dasherize(this.name) + '-ctrl.js';
-    this.ctrlSpecFilename = _s.dasherize(this.name) + '-ctrl-spec.js';
+    this.viewPath = 'app/views/' + this.viewFilename + '/';
+    this.moduleName = this.vendorPrefix + '.views.' + _s.classify(this.viewFilename);
+    this.styleName = _s.camelize(this.name);
+
+    this.ctrlName = _s.classify(this.viewFilename + '-ctrl');
+    this.ctrlFilename = this.viewFilename + '-ctrl.js';
+    this.ctrlSpecFilename = this.viewFilename + '-ctrl-spec.js';
   },
 
   files: function () {

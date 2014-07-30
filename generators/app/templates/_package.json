@@ -20,7 +20,7 @@
     "gulp-jade": "^0.5.0",
     "del": "^0.1.1",
     "gulp-compass": "^1.1.9",
-    "gulp-ngmin": "^0.3.0",
+    "gulp-ng-annotate": "^0.2.0",
     "gulp-concat": "^2.2.0",
     "gulp-jshint": "^1.6.3",
     "gulp-sass": "^0.7.2",

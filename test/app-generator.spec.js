@@ -22,6 +22,13 @@ describe('App Generator', function () {
 
   });
 
+  it('should set the right variable names for templates', function () {
+    assert.equal(appGen.generator.appName, 'xdTest');
+    assert.equal(appGen.generator.projectSlug, 'xd-test');
+    assert.equal(appGen.generator.appTitle, 'Xd Test');
+    assert.equal(appGen.generator.controllerName, 'XdTestCtrl');
+  });
+
   afterEach(function (done) {
     rimraf(path.join( __dirname, './tmp'), done);
   });
