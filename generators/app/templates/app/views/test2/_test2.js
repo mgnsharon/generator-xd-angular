@@ -1,5 +1,12 @@
-angular.module('<%= vendorPrefix %>.views.test2', [])
+(function () {
 
-  .controller('test2Ctrl', function ($scope) {
-    $scope.heading = 'Test 2';
-  });
+  /* ngInject */
+  function Test2Ctrl() {
+    var vm = this;
+    vm.heading = 'Test 2'
+  }
+
+  angular.module('<%= vendorPrefix %>.views.test2', [])
+    .controller('Test2Ctrl', Test2Ctrl);
+
+})();
