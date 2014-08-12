@@ -8,8 +8,8 @@
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
     $stateProvider
-      .state('test1', { url: '/test1', templateUrl: '/views/test1/test1.html', controller: 'test1Ctrl'})
-      .state('test2', { url: '/test2', templateUrl: '/views/test2/test2.html', controller: 'test2Ctrl'});
+      .state('test1', { url: '/test1', templateUrl: '/views/test1/test1.html', controller: 'Test1Ctrl', controllerAs: 'vm'})
+      .state('test2', { url: '/test2', templateUrl: '/views/test2/test2.html', controller: 'Test2Ctrl', controllerAs: 'vm'});
 
     $urlRouterProvider.otherwise('/test1');
   }
