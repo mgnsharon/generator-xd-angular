@@ -12,13 +12,13 @@ var FactoryGenerator = yeoman.generators.NamedBase.extend({
     this.servicePath = 'app/services/' + _s.dasherize(this.name) + '/';
     this.moduleName = this.vendorPrefix + '.services.' + _s.classify(this.name);
     this.factoryName = _s.classify(this.name);
-    this.factoryFilename = _s.dasherize(this.name) + '.js';
-    this.factorySpecFilename = _s.dasherize(this.name) + '-spec.js';
+    this.filename = _s.dasherize(this.name) + '.js';
+    this.specFilename = _s.dasherize(this.name) + '-spec.js';
   },
 
   files: function () {
-    this.template('_factory.js', this.servicePath + this.factoryFilename);
-    this.template('_factory-spec.js', this.servicePath + this.factorySpecFilename);
+    this.template('_factory.js', this.servicePath + this.filename);
+    this.template('_factory-spec.js', this.servicePath + this.specFilename);
   }
 });
 
