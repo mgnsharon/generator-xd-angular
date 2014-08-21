@@ -54,3 +54,10 @@ yo xd-angular:factory factory-name
 ```
 creates a new directory factory-name in app/services
 creates an angular service and spec in that directory
+
+API generator:
+```
+yo xd-angular:api api-name baseUrl resourceName
+```
+creates a new directory api-name in app/resource
+creates a restangular service, mock data value, e2e mock and spec in that directory
