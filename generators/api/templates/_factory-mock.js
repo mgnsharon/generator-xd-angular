@@ -12,6 +12,6 @@
     });
   }
 
-  angular.module('<%= moduleMockName %>', ['ngMockE2E', '<%= moduleMockDataName %>', '<%= factoryName %>Config'])
+  angular.module('<%= moduleMockName %>', ['ngMockE2E', '<%= moduleMockDataName %>', '<%= moduleName %>'])
   .run(<%= mockName %>);
 })();
