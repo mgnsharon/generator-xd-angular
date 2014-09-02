@@ -15,6 +15,7 @@ var ViewGenerator = yeoman.generators.NamedBase.extend({
     this.styleName = _s.camelize(this.name);
 
     this.ctrlName = _s.classify(this.viewFilename + '-ctrl');
+    this.ctrlInstance = _s.camelize(this.viewFilename + '-ctrl');
     this.ctrlFilename = this.viewFilename + '-ctrl.js';
     this.ctrlSpecFilename = this.viewFilename + '-ctrl-spec.js';
   },

@@ -59,5 +59,5 @@ API generator:
 ```
 yo xd-angular:api api-name baseUrl resourceName
 ```
-creates a new directory api-name in app/resource
+creates a new directory api-name in app/api
 creates a restangular service, mock data value, e2e mock and spec in that directory

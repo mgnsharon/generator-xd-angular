@@ -7,7 +7,7 @@
   }
 
   angular.module('<%= moduleName %>', [])
-    .controller('<%= ctrlName %>', <%= ctrlName %>);
+    .controller('<%= ctrlInstance %>', <%= ctrlName %>);
 
 })();
 

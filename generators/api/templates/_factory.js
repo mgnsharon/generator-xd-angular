@@ -35,6 +35,6 @@
 
   angular.module('<%= moduleName %>', ['restangular'])
     .constant('<%= factoryName %>Config', <%= factoryName %>Config)
-    .factory('<%= factoryName %>', <%= factoryName %>);
+    .factory('<%= factoryInstance %>', <%= factoryName %>);
 
 })();

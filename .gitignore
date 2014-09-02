@@ -2,6 +2,7 @@ node_modules/
 bower_components/
 *.log
 .yo-rc.json
+.idea/
 
 test/tmp/
 build/
