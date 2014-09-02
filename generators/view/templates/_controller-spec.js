@@ -5,7 +5,7 @@ describe('<%= moduleName %>', function () {
   var scope, ctrl;
   beforeEach( inject( function ($rootScope, $controller){
     scope = $rootScope.$new();
-    ctrl = $controller('<%= ctrlName %> as vm', { $scope: scope });
+    ctrl = $controller('<%= ctrlInstance %> as vm', { $scope: scope });
   }));
 
 

@@ -1,6 +1,6 @@
 {
   "name": "generator-xd-angular",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "AngularJS yeoman-generator using Angular-ui-router, sass-bootstrap, compass, mocha, gulp, font-awesome",
   "keywords": [
     "yeoman-generator",

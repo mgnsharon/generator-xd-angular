@@ -1,4 +1,5 @@
 /*globals inject, beforeEach, describe, it, expect, module*/
+/*jshint expr: true*/
 describe('<%= moduleName %>', function () {
 
   var $httpBackend, <%= mockDataName %>, resourceURL;
@@ -12,9 +13,9 @@ describe('<%= moduleName %>', function () {
     resourceURL = <%= factoryName %>Config.BASE_URL + '/' + <%= factoryName %>Config.RESOURCE_NAME;
   }));
 
-  it('should have a getAll function that makes a GET request to <%= baseUrl + '/' + resourceName %> and returns an array', inject(function (<%= factoryName %>) {
+  it('should have a getAll function that makes a GET request to <%= baseUrl + '/' + resourceName %> and returns an array', inject(function (<%= factoryInstance %>) {
     $httpBackend.expectGET(resourceURL).respond(<%= mockDataName %>);
-    <%= factoryName %>.getAll().then(
+    <%= factoryInstance %>.getAll().then(
       function (resp) {
         expect(angular.isArray(resp)).to.be.true;
       }

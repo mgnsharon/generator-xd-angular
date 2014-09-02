@@ -13,6 +13,6 @@
   }
 
   angular.module('<%= moduleName %>', [])
-    .factory('<%= factoryName %>', <%= factoryName %>);
+    .factory('<%= factoryInstance %>', <%= factoryName %>);
 
 })();
