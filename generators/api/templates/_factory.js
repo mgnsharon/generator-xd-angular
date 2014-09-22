@@ -14,7 +14,7 @@
         return <%= resourceName %>.getList();
       },
       get: function (id) {
-        return <%= resourceName %>.one(id);
+        return <%= resourceName %>.get(id);
       },
       create: function (data) {
         return <%= resourceName %>.post(data);
