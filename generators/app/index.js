@@ -37,7 +37,12 @@ var XdCodeGenerator = yeoman.generators.Base.extend({
       {
         name: 'vendorPrefix',
         message: 'What vendor prefix would you like to use for your directives?',
-        default: ''
+        validate: function (input){
+          if (_.isString(input)) {
+            if (input.length >= 2 && input !== 'ng' && input.match(/^[a-zA-Z]*$/)) return true;
+          }
+          return "Please enter 2 or more lower case letters, but not 'ng'.";
+        }
       },
       {
         name: 'repoUrl',
