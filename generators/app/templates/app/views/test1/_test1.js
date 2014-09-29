@@ -3,7 +3,7 @@
   /* ngInject */
   function Test1Ctrl() {
     var vm = this;
-    vm.heading = 'Test 1'
+    vm.heading = 'Test 1';
   }
 
   angular.module('<%= vendorPrefix %>.views.test1', [])
