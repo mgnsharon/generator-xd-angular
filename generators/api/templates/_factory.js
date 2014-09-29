@@ -1,4 +1,12 @@
 (function () {
+  var <%= factoryName %>Config = {
+    BASE_URL: '<%= baseUrl %>',
+    RESOURCE_NAME: '<%= resourceName %>'
+  };
+
+  angular.module('<%= moduleName %>', ['restangular'])
+    .constant('<%= factoryName %>Config', <%= factoryName %>Config)
+    .factory('<%= factoryInstance %>', <%= factoryName %>);
 
   /* @ngInject */
   function <%= factoryName %>(Restangular, <%= factoryName %>Config) {
@@ -27,14 +35,5 @@
       }
     };
   }
-
-  var <%= factoryName %>Config = {
-    BASE_URL: '<%= baseUrl %>',
-    RESOURCE_NAME: '<%= resourceName %>'
-  };
-
-  angular.module('<%= moduleName %>', ['restangular'])
-    .constant('<%= factoryName %>Config', <%= factoryName %>Config)
-    .factory('<%= factoryInstance %>', <%= factoryName %>);
 
 })();
