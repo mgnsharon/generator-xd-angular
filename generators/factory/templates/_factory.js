@@ -1,5 +1,8 @@
 (function () {
 
+  angular.module('<%= moduleName %>', [])
+    .factory('<%= factoryInstance %>', <%= factoryName %>);
+
   /* @ngInject */
   function <%= factoryName %>() {
     var _data = [];
@@ -11,8 +14,5 @@
       }
     };
   }
-
-  angular.module('<%= moduleName %>', [])
-    .factory('<%= factoryInstance %>', <%= factoryName %>);
 
 })();
