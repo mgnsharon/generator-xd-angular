@@ -53,7 +53,9 @@
     "underscore.string": "^2.3.3"
   },
   "devDependencies": {
-    "mocha": "^1.20.1"
+    "chai": "^1.9.1",
+    "mocha": "^1.20.1",
+    "mout": "^0.10.0"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
