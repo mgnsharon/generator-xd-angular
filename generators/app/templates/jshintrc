@@ -1,5 +1,5 @@
 {
-  "es3": true,
+  "es3": false,
   "bitwise": true,
   "camelcase": true,
   "curly": true,
@@ -22,12 +22,9 @@
     "angular": true,
     "_": true,
     "console": true,
-    "moment": true,
-    "Spinner": true,
     "require": true,
     "exports": true,
     "module": true,
-    "process": true,
-    "toastr": true
+    "process": true
   }
 }
