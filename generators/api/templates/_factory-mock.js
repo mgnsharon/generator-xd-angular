@@ -1,5 +1,7 @@
 (function () {
-
+  angular.module('<%= moduleMockName %>', ['ngMockE2E', '<%= moduleMockDataName %>', '<%= moduleName %>'])
+    .run(<%= mockName %>);
+    
   function <%= mockName %>($httpBackend, <%= mockDataName %>, <%= factoryName %>Config) {
     var URL = <%= factoryName %>Config.BASE_URL + '/' + <%= factoryName %>Config.RESOURCE_NAME;
 
@@ -12,6 +14,4 @@
     });
   }
 
-  angular.module('<%= moduleMockName %>', ['ngMockE2E', '<%= moduleMockDataName %>', '<%= moduleName %>'])
-  .run(<%= mockName %>);
 })();
