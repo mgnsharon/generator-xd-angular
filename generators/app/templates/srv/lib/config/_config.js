@@ -7,13 +7,13 @@ console.log('Prod webRoot: ' + rootPath.concat('/public'));
 module.exports = {
   development: {
     rootPath: rootPath,
-    port: process.env.PORT || 8080,
+    port: process.env.PORT || 8081,
     webRoot: rootPath.concat('/dev')
   },
 
   production: {
     rootPath: rootPath,
-    port: process.env.PORT || 80,
+    port: process.env.PORT || 8081,
     webRoot: rootPath.concat('/public')
   }
 };
