@@ -70,6 +70,8 @@ var XdCodeGenerator = yeoman.generators.Base.extend({
 
   createDirectoryStructure: function () {
     this.mkdir('app');
+    this.mkdir('lib');
+    this.mkdir('lib/tasks');
     if (this.webserver === 'express') {
       this.mkdir('srv');
       this.mkdir('srv/lib');
@@ -104,6 +106,13 @@ var XdCodeGenerator = yeoman.generators.Base.extend({
     this.template('app/views/test1/_test1.jade', 'app/views/test1/test1.jade');
     this.template('app/views/test2/_test2.js', 'app/views/test2/test2.js');
     this.template('app/views/test2/_test2.jade', 'app/views/test2/test2.jade');
+    this.template('lib/_config.js', 'lib/config.js');
+    this.template('lib/tasks/_copy.js', 'lib/tasks/copy.js');
+    this.template('lib/tasks/_create-styles.js', 'lib/tasks/create-styles.js');
+    this.template('lib/tasks/_create-templates.js', 'lib/tasks/create-templates.js');
+    this.template('lib/tasks/_lint.js', 'lib/tasks/lint.js');
+    this.template('lib/tasks/_serve.js', 'lib/tasks/serve.js');
+    this.template('lib/tasks/_unit-test.js', 'lib/tasks/unit-test.js');
 
     if (this.webserver === 'express') {
       this.template('srv/_server.js', 'srv/server.js');
