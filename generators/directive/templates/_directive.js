@@ -1,4 +1,6 @@
-(function () {
+(function () { 
+  angular.module('<%= moduleName %>', ['<%= vendorPrefix %>.tmpls'])
+    .directive('<%= directiveName %>', <%= directiveName %>);
 
   /* @ngInject */
   function <%= directiveName %>() {
@@ -9,6 +11,4 @@
     };
   }
 
-  angular.module('<%= moduleName %>', ['<%= vendorPrefix %>.tmpls'])
-    .directive('<%= directiveName %>', <%= directiveName %>);
 })();

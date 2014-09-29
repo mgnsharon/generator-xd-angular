@@ -6,4 +6,5 @@
 
   angular.module('<%= moduleMockDataName %>')
     .value('<%= mockDataName %>', <%= mockDataName %>);
+    
 })();
