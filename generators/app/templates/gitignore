@@ -3,7 +3,8 @@ bower_components/
 *.log
 .idea/
 .sass-cache/
-
+public/
 build/
 dist/
 dev/
+.DS_Store
