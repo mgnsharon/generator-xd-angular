@@ -1,23 +1,25 @@
 'use strict';
-var util = require('util'),
-  path = require('path'),
-  yeoman = require('yeoman-generator'),
+var yeoman = require('yeoman-generator'),
   _ = require('lodash'),
-  _s = require('underscore.string');
+  nameHelper = require('../../lib/name-helper.js');
 
 
 var ViewGenerator = yeoman.generators.NamedBase.extend({
   init: function () {
     _.assign(this, this.config.getAll());
-    this.viewFilename = _s.dasherize(this.name);
-    this.viewPath = 'app/views/' + this.viewFilename + '/';
-    this.moduleName = this.vendorPrefix + '.views.' + _s.classify(this.viewFilename);
-    this.styleName = _s.camelize(this.name);
+    this.camelizedName = nameHelper.camelize(this.name);
+    this.hyphenatedName = nameHelper.hyphenate(this.name);
+    this.classifiedName = nameHelper.classify(this.name);
 
-    this.ctrlName = _s.classify(this.viewFilename + '-ctrl');
-    this.ctrlInstance = _s.camelize(this.viewFilename + '-ctrl');
-    this.ctrlFilename = this.viewFilename + '-ctrl.js';
-    this.ctrlSpecFilename = this.viewFilename + '-ctrl-spec.js';
+    this.viewFilename = this.hyphenatedName;
+    this.viewPath = 'app/views/' + this.viewFilename + '/';
+    this.moduleName = this.vendorPrefix + '.views.' + this.classifiedName;
+    this.styleName = this.camelizedName;
+
+    this.ctrlName = this.classifiedName.concat('Ctrl');
+    this.ctrlInstance = this.camelizedName.concat('Ctrl');
+    this.ctrlFilename = this.viewFilename.concat('-ctrl.js');
+    this.ctrlSpecFilename = this.viewFilename.concat('-ctrl-spec.js');
   },
 
   files: function () {
