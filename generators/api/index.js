@@ -1,9 +1,7 @@
 'use strict';
-var util = require('util'),
-  path = require('path'),
-  yeoman = require('yeoman-generator'),
+var yeoman = require('yeoman-generator'),
   _ = require('lodash'),
-  _s = require('underscore.string');
+  nameHelper = require('../../lib/name-helper.js');
 
 
 var ApiGenerator = yeoman.generators.NamedBase.extend({
@@ -15,7 +13,7 @@ var ApiGenerator = yeoman.generators.NamedBase.extend({
       type: 'String',
       defaults: '/api/v1'
     });
-    this.argument('resourceName', {
+    this.argument('resource', {
       desc: 'The pluralized name of your resource.',
       required: true,
       type: 'String'
@@ -24,21 +22,24 @@ var ApiGenerator = yeoman.generators.NamedBase.extend({
 
   init: function () {
     _.assign(this, this.config.getAll());
-    this.resourceName = _s.camelize(this.resourceName);
-    this.factoryName = _s.classify(this.name);
-    this.factoryInstance = _s.camelize(this.name);
-    this.dasherizedName = _s.dasherize(this.name);
-    this.servicePath = 'app/api/' + this.dasherizedName + '/';
+    this.camelizedName = nameHelper.camelize(this.name);
+    this.hyphenatedName = nameHelper.hyphenate(this.name);
+    this.classifiedName = nameHelper.classify(this.name);
+
+    this.resourceName = nameHelper.camelize(this.resource);
+    this.factoryName = this.classifiedName;
+    this.factoryInstance = this.camelizedName;
+    this.servicePath = 'app/api/' + this.hyphenatedName + '/';
     this.moduleName = this.vendorPrefix + '.api.' + this.factoryName;
     this.mockName = this.factoryName + 'Mock';
     this.mockDataName = this.factoryName + 'MockData';
     this.moduleMockName = this.vendorPrefix + '.api.' + this.mockName;
     this.moduleMockDataName = this.vendorPrefix + '.api.' + this.mockDataName;
 
-    this.filename = this.dasherizedName + '.js';
-    this.specFilename = this.dasherizedName + '-spec.js';
-    this.mockFilename = this.dasherizedName + '-mock.js';
-    this.mockDataFilename = this.dasherizedName + '-mock-data.js';
+    this.filename = this.hyphenatedName + '.js';
+    this.specFilename = this.hyphenatedName + '-spec.js';
+    this.mockFilename = this.hyphenatedName + '-mock.js';
+    this.mockDataFilename = this.hyphenatedName + '-mock-data.js';
   },
 
   files: function () {
