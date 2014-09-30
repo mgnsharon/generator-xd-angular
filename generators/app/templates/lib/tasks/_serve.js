@@ -9,7 +9,7 @@ var gulp = require('gulp'),
  */
 gulp.task('open:dev', ['serve:dev'], function () {
   return gulp.src('dev/index.html')
-    .pipe(open("", {url: 'http://localhost:8081'}))
+    .pipe(open("", {url: 'http://' + config.server.HOST + ':' + config.server.PORT}))
 });
 
 gulp.task('serve:dev', ['dev:build'], function () {
@@ -30,8 +30,8 @@ gulp.task('serve:dev', ['dev:build'], function () {
   <% if (webserver === 'gulp-webserver') { %>return gulp.src('dev')
     .pipe(webserver({
       livereload: true,
-      host: '0.0.0.0',
-      port: 8081,
+      host: config.server.HOST,
+      port: config.server.PORT,
       fallback: 'index.html'
     }));<% } %>
 });
