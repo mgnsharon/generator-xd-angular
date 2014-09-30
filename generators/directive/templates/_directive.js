@@ -1,9 +1,9 @@
 (function () { 
   angular.module('<%= moduleName %>', ['<%= vendorPrefix %>.tmpls'])
-    .directive('<%= directiveName %>', <%= directiveName %>);
+    .directive('<%= camelizedName %>', <%= classifiedName %>);
 
   /* @ngInject */
-  function <%= directiveName %>() {
+  function <%= classifiedName %>() {
     return {
       restrict: 'EA',
       replace: true,
