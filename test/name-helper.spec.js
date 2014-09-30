@@ -50,5 +50,50 @@ describe.only('nameHelper', function () {
     });
   })
 
+  describe('hyphenate', function () {
+    it('should hyphenate a dasherized name', function () {
+      expect(nameHelper.hyphenate('test-class')).to.be.equal('test-class')
+    });
+
+    it('should hyphenate a camelized name', function () {
+      expect(nameHelper.hyphenate('testClass')).to.be.equal('test-class')
+    });
+
+    it('should hyphenate an underscored name', function () {
+      expect(nameHelper.hyphenate('test_class')).to.be.equal('test-class')
+    });
+
+    it('should hyphenate a classified name', function () {
+      expect(nameHelper.hyphenate('TestClass')).to.be.equal('test-class')
+    });
+
+    it('should hyphenate a lazy developer name', function () {
+      expect(nameHelper.hyphenate('SomeView1')).to.be.equal('some-view1')
+    });
+
+  })
+
+  describe('camelize', function () {
+    it('should output a camel case name given a dasherized name', function () {
+      expect(nameHelper.camelize('test-class')).to.be.equal('testClass')
+    });
+
+    it('should output a camel case name given a camelized name', function () {
+      expect(nameHelper.camelize('testClass')).to.be.equal('testClass')
+    });
+
+    it('should output a camel case name given a underscored name', function () {
+      expect(nameHelper.camelize('test_class')).to.be.equal('testClass')
+    });
+
+    it('should output a camel case name given a classified name', function () {
+      expect(nameHelper.camelize('TestClass')).to.be.equal('testClass')
+    });
+
+    it('should capitalize the first letter given an all lower case name', function () {
+      expect(nameHelper.camelize('testclass')).to.be.equal('testclass')
+    });
+  })
+
 
 });
