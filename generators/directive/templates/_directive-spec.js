@@ -7,7 +7,7 @@ describe('<%= moduleName %>', function () {
 
   beforeEach( inject( function ($rootScope, $compile){
     scope = $rootScope.$new();
-    el = angular.element('<<%= directiveTag %>></<%= directiveTag %>>');
+    el = angular.element('<<%= hyphenatedName %>></<%= hyphenatedName %>>');
     $compile(el, scope);
     scope.$apply();
   }));
