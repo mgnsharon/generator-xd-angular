@@ -1,7 +1,5 @@
 'use strict';
-var util = require('util'),
-  path = require('path'),
-  yeoman = require('yeoman-generator'),
+var yeoman = require('yeoman-generator'),
   _ = require('lodash'),
   nameHelper = require('../../lib/name-helper.js');
 
