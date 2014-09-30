@@ -19,5 +19,9 @@ var paths = {
 module.exports = {
   filesets: filesets,
   paths: paths,
-  sassFile: paths.app.concat('app.scss')
+  sassFile: paths.app.concat('app.scss'),
+  server: {
+    HOST: 'localhost',
+    PORT: '8081'
+  }
 };
