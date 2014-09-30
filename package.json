@@ -1,6 +1,6 @@
 {
   "name": "generator-xd-angular",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "AngularJS yeoman-generator using Angular-ui-router, sass-bootstrap, compass, mocha, gulp, font-awesome",
   "keywords": [
     "yeoman-generator",
@@ -28,7 +28,7 @@
   "contributors": [
     "Chris Sharon <chris@xdoji.com> (https://github.com/csharon)",
     "Aaron Olson <aaron.chandler.olson@gmail.com>",
-    "Dave Davis <dave@windwardconcepts.com> (https://github.com/brainsail)"
+    "Dave Davis <dgd.code@gmail.com> (https://github.com/brainsail)"
   ],
   "license": "MIT",
   "bugs": {
