@@ -9,7 +9,6 @@ var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
 var _ = require('lodash');
-var mout = require('mout').string;
 var nameHelper = require('../../lib/name-helper.js');
 
 var XdCodeGenerator = yeoman.generators.Base.extend({
@@ -92,11 +91,12 @@ var XdCodeGenerator = yeoman.generators.Base.extend({
   },
 
   executeTemplates: function () {
-    this.projectSlug = mout.hyphenate(this.projectName);
-    this.appName = mout.pascalCase(this.projectName);
+    this.projectSlug = nameHelper.hyphenate(this.projectName);
+    this.appName = nameHelper.classify(this.projectName);
     this.appTitle = nameHelper.titleize(this.projectName);
-    var ctrlName = _s.underscored(this.appName).concat('_ctrl');
-    this.controllerName = _s.classify(ctrlName);
+
+    this.controllerName = this.appName.concat('Ctrl');
+    this.controllerInstance = nameHelper.camelize(this.controllerName)
 
     this.template('_bower.json', 'bower.json');
     this.template('_package.json', 'package.json');
