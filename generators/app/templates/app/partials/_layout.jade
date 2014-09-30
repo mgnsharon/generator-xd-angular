@@ -5,6 +5,6 @@ html(lang="en", ng-app="<%= appName %>" ng-strict-di)
     link(href="/favicon.ico", rel="shortcut icon", type="image/x-icon")
     link(rel="stylesheet", href="/vendor/toastr/toastr.css")
     link(rel="stylesheet", href="/app.css")
-  body(ng-controller="<%= controllerName %> as vm", ng-cloak)
+  body(ng-controller="<%= controllerInstance %> as vm", ng-cloak)
     block main-content
     include scripts
