@@ -24,6 +24,7 @@ var ApiGenerator = yeoman.generators.NamedBase.extend({
 
   init: function () {
     _.assign(this, this.config.getAll());
+    this.resourceName = _s.camelize(this.resourceName);
     this.factoryName = _s.classify(this.name);
     this.factoryInstance = _s.camelize(this.name);
     this.dasherizedName = _s.dasherize(this.name);
