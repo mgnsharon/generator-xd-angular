@@ -3,18 +3,22 @@ var util = require('util'),
   path = require('path'),
   yeoman = require('yeoman-generator'),
   _ = require('lodash'),
-  _s = require('underscore.string');
+  nameHelper = require('../../lib/name-helper.js');
 
 
 var FactoryGenerator = yeoman.generators.NamedBase.extend({
   init: function () {
     _.assign(this, this.config.getAll());
-    this.servicePath = 'app/services/' + _s.dasherize(this.name) + '/';
-    this.moduleName = this.vendorPrefix + '.services.' + _s.classify(this.name);
-    this.factoryName = _s.classify(this.name);
-    this.factoryInstance = _s.camelize(this.name);
-    this.filename = _s.dasherize(this.name) + '.js';
-    this.specFilename = _s.dasherize(this.name) + '-spec.js';
+    this.camelizedName = nameHelper.camelize(this.name);
+    this.hyphenatedName = nameHelper.hyphenate(this.name);
+    this.classifiedName = nameHelper.classify(this.name);
+
+    this.servicePath = 'app/services/' + this.hyphenatedName + '/';
+    this.moduleName = this.vendorPrefix + '.services.' + this.classifiedName;
+    this.factoryName = this.classifiedName;
+    this.factoryInstance = this.camelizedName;
+    this.filename = this.hyphenatedName + '.js';
+    this.specFilename = this.hyphenatedName + '-spec.js';
   },
 
   files: function () {
