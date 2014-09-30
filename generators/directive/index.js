@@ -1,26 +1,26 @@
 'use strict';
-var util = require('util'),
-  path = require('path'),
-  yeoman = require('yeoman-generator'),
+var yeoman = require('yeoman-generator'),
   _ = require('lodash'),
-  _s = require('underscore.string');
+  nameHelper = require('../../lib/name-helper.js');
 
 
 var DirectiveGenerator = yeoman.generators.NamedBase.extend({
   init: function () {
     _.assign(this, this.config.getAll());
 
-    this.directiveName = _s.camelize(this.name);
-    this.directiveTag = _s.dasherize(this.name);
-    this.templatePath = '/components/' + _s.dasherize(this.name) + '/' + _s.dasherize(this.name) + '.html';
-    this.moduleName = this.vendorPrefix + '.components.' + _s.camelize(this.name);
-    this.styleName = _s.camelize(this.name);
+    this.camelizedName = nameHelper.camelize(this.name);
+    this.hyphenatedName = nameHelper.hyphenate(this.name);
+    this.classifiedName = nameHelper.classify(this.name);
+    this.templatePath = '/components/' + this.hyphenatedName + '/' + this.hyphenatedName + '.html';
+    this.moduleName = this.vendorPrefix + '.components.' + this.classifiedName;
+    this.styleName = this.camelizedName;
 
-    this.viewPath = 'app/components/' + _s.dasherize(this.name) + '/';
-    this.viewFilename = _s.dasherize(this.name);
+    this.viewFilename = this.hyphenatedName;
+    this.viewPath = 'app/components/' + this.hyphenatedName + '/';
 
-    this.directiveFilename = _s.dasherize(this.name) + '.js';
-    this.directiveSpecFilename = _s.dasherize(this.name) + '-spec.js';
+
+    this.directiveFilename = this.hyphenatedName + '.js';
+    this.directiveSpecFilename = this.hyphenatedName + '-spec.js';
   },
 
   files: function () {

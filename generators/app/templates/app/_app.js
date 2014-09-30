@@ -28,5 +28,5 @@
   ])
     .config(config)
 
-    .controller('<%= controllerName %>', <%= controllerName %>);
+    .controller('<%= controllerInstance %>', <%= controllerName %>);
 })();
