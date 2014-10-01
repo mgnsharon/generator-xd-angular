@@ -1,7 +1,7 @@
 {
   "name": "generator-xd-angular",
-  "version": "0.5.3",
-  "description": "AngularJS yeoman-generator using Angular-ui-router, sass-bootstrap, compass, mocha, gulp, font-awesome",
+  "version": "0.6.0",
+  "description": "AngularJS yeoman-generator using Angular-ui-router, sass-bootstrap, compass, mocha, gulp, font-awesome, ngdocs",
   "keywords": [
     "yeoman-generator",
     "angular",
@@ -17,7 +17,8 @@
     "live-reload",
     "jade",
     "font-awesome",
-    "bower"
+    "bower",
+    "ngdocs"
   ],
   "main": "generators/app/index.js",
   "repository": {

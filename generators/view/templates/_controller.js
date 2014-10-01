@@ -1,5 +1,10 @@
 (function () {
 
+  /**
+   * @ngdoc function
+   * @name <%= moduleName %>:<%= ctrlInstance %>
+   *
+   */
   angular.module('<%= moduleName %>', [])
     .controller('<%= ctrlInstance %>', <%= ctrlName %>);
 
