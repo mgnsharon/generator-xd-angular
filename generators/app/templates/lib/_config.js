@@ -13,7 +13,8 @@ var paths = {
   app: rootPath.concat('/app/'),
   dev: rootPath.concat('/dev/'),
   vendor_dev: rootPath.concat('/dev/vendor/'),
-  prod: rootPath.concat('/public/')
+  prod: rootPath.concat('/public/'),
+  docs: rootPath.concat('/docs/')
 };
 
 module.exports = {
@@ -22,6 +23,7 @@ module.exports = {
   sassFile: paths.app.concat('app.scss'),
   server: {
     HOST: 'localhost',
-    PORT: '8081'
+    PORT: 8081,
+    DOCS_PORT: 3001
   }
 };
