@@ -4,6 +4,11 @@
     RESOURCE_NAME: '<%= resourceName %>'
   };
 
+  /**
+  * @ngdoc service
+  * @name <%= moduleName %>:<%= factoryInstance %>
+  *
+  */
   angular.module('<%= moduleName %>', ['restangular'])
     .constant('<%= factoryName %>Config', <%= factoryName %>Config)
     .factory('<%= factoryInstance %>', <%= factoryName %>);

@@ -1,5 +1,10 @@
 (function () {
 
+  /**
+   * @ngdoc service
+   * @name <%= moduleName %>:<%= factoryInstance %>
+   *
+   */
   angular.module('<%= moduleName %>', [])
     .factory('<%= factoryInstance %>', <%= factoryName %>);
 

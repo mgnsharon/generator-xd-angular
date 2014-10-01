@@ -15,6 +15,7 @@ requireDir('./lib/tasks', { recurse: true });
 gulp.task('dev', ['open:dev']);
 gulp.task('test', ['createtesttmpls', 'test:ci']);
 gulp.task('tdd', ['createtesttmpls', 'autotest', 'watch:testtemplates']);
+gulp.task('docs', ['open:docs']);
 
 
 /**
