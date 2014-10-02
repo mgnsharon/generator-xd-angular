@@ -119,6 +119,7 @@ var XdCodeGenerator = yeoman.generators.Base.extend({
     this.template('lib/tasks/_serve.js', 'lib/tasks/serve.js');
     this.template('lib/tasks/_docs.js', 'lib/tasks/docs.js');
     this.template('lib/tasks/_unit-test.js', 'lib/tasks/unit-test.js');
+    this.template('lib/tasks/_minify.js', 'lib/tasks/minify.js');
 
     if (this.webserver === 'express') {
       this.template('srv/_server.js', 'srv/server.js');

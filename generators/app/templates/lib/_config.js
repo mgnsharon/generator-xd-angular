@@ -5,7 +5,8 @@ var filesets = {
   js: ['app/**/*.js', '!app/**/*-spec.js'],
   jsall: ['app/**/*.js', '!app/**/*-mock-data.js'],
   sass: ['app/**/*.scss'],
-  dev: 'dev/**'
+  dev: 'dev/**',
+  minified: ['app/**/*.js', '!app/**/*-spec.js', 'public/*.tpls.js']
 };
 
 var paths = {
